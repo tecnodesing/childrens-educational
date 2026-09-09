@@ -6,38 +6,13 @@ export default function Logo({ size = 56, withText = false }: { size?: number; w
         style={{ width: size, height: size }}
         aria-label="Aprende Jugando - logo TD"
       >
-        <svg viewBox="0 0 120 120" width={size} height={size} className="overflow-visible">
-          <defs>
-            <radialGradient id="tdBubble" cx="35%" cy="30%" r="80%">
-              <stop offset="0%" stopColor="#22C8EF" />
-              <stop offset="55%" stopColor="#00A9D6" />
-              <stop offset="100%" stopColor="#0083B3" />
-            </radialGradient>
-            <filter id="tdSoft" x="-20%" y="-20%" width="140%" height="140%">
-              <feDropShadow dx="0" dy="3" stdDeviation="3" floodColor="#0369a1" floodOpacity="0.35" />
-            </filter>
-          </defs>
-          {/* Burbuja principal con colita a la izquierda */}
-          <g filter="url(#tdSoft)">
-            <circle cx="62" cy="60" r="52" fill="url(#tdBubble)" />
-            <circle cx="62" cy="60" r="52" fill="none" stroke="#7BDCF2" strokeWidth="1.5" opacity="0.6" />
-            <path d="M14 66 Q2 60 10 50 Q16 44 22 48 L30 58 L24 70 Q18 72 14 66 Z" fill="#00A9D6" />
-            <path d="M14 66 Q2 60 10 50" fill="none" stroke="#7BDCF2" strokeWidth="1.5" opacity="0.7" />
-            {/* brillo */}
-            <ellipse cx="44" cy="30" rx="18" ry="9" fill="white" opacity="0.22" transform="rotate(-18 44 30)" />
-          </g>
-          {/* Monograma TD estilizado */}
-          <g fill="none" stroke="#BDEFFB" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round" opacity="0.95">
-            {/* T */}
-            <path d="M28 34 H62" />
-            <path d="M45 34 V92 Q45 96 49 96" />
-            {/* D grande */}
-            <path d="M58 30 H72 Q102 30 102 62 Q102 94 72 94 H58" />
-          </g>
-          <g fill="#FFFFFF" opacity="0.16">
-            <path d="M28 34 H62 V40 H28 Z" />
-          </g>
-        </svg>
+        <img
+          src="/logo.png"
+          alt="Logo TD"
+          width={size}
+          height={size}
+          className="object-contain"
+        />
       </div>
       {withText && (
         <div className="leading-tight">

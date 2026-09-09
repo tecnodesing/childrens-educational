@@ -1,6 +1,6 @@
 /* Aprende Jugando — Service Worker (offline-first) */
 const CACHE = 'aprende-jugando-v2';
-const CORE = ['/', '/index.html', '/manifest.webmanifest', '/icons/icon.svg'];
+const CORE = ['/', '/index.html', '/manifest.webmanifest', '/logo.png'];
 
 self.addEventListener('install', (event) => {
   event.waitUntil(

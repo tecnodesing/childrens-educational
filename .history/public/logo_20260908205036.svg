@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 120" role="img" aria-label="Aprende Jugando con TD">
+  <defs>
+    <linearGradient id="bg" x1="0%" x2="100%" y1="0%" y2="0%">
+      <stop offset="0%" stop-color="#0EA5E9"/>
+      <stop offset="100%" stop-color="#0284C7"/>
+    </linearGradient>
+  </defs>
+  <rect width="320" height="120" rx="28" fill="url(#bg)"/>
+  <circle cx="64" cy="60" r="38" fill="#E0F2FE" opacity="0.18"/>
+  <path d="M24 72 Q12 62 20 54 Q26 48 32 52 L40 62 L34 74 Q28 78 24 72 Z" fill="#7DD3FC"/>
+  <g fill="none" stroke="#E0F2FE" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M42 36 H72"/>
+    <path d="M57 36 V82 Q57 86 61 86"/>
+    <path d="M76 32 H90 Q116 32 116 60 Q116 88 90 88 H76"/>
+  </g>
+  <text x="136" y="54" font-family="Verdana, Arial, sans-serif" font-size="28" font-weight="800" fill="#F8FDFF">Aprende</text>
+  <text x="136" y="86" font-family="Verdana, Arial, sans-serif" font-size="28" font-weight="800" fill="#E0F2FE">Jugando</text>
+</svg>
