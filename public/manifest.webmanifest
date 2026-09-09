@@ -1,0 +1,33 @@
+{
+  "name": "Aprende Jugando con TD",
+  "short_name": "Aprende Jugando",
+  "description": "Niños de 6 años aprenden a leer, escribir, sumar y restar en 24 semanas con TD, su robot compañero.",
+  "lang": "es",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#E0F2FE",
+  "theme_color": "#00A9D6",
+  "categories": ["education", "kids"],
+  "icons": [
+    {
+      "src": "/icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "192x192 512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

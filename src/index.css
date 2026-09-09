@@ -1,0 +1,119 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Fredoka", "Baloo 2", "Nunito", system-ui, sans-serif;
+  --font-body: "Nunito", "Baloo 2", system-ui, sans-serif;
+  --color-td-50: #effafe;
+  --color-td-100: #d7f0fb;
+  --color-td-300: #7bdcf2;
+  --color-td-400: #22c8ef;
+  --color-td-500: #00a9d6;
+  --color-td-600: #0083b3;
+  --color-td-700: #0369a1;
+  --color-td-900: #0c4a6e;
+  --color-td-950: #082f49;
+}
+
+html {
+  -webkit-tap-highlight-color: transparent;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background: #e0f2fe;
+  overscroll-behavior-y: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Botones táctiles grandes */
+button {
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Safe area (notch/cámara frontal) en iPhone/iPad y Android fullscreen.
+ * Sin capas: tiene prioridad sobre las utilidades de Tailwind. */
+.sticky.top-0 {
+  top: env(safe-area-inset-top, 0px);
+  padding-top: env(safe-area-inset-top, 0px);
+}
+.aj-bajo-seguro {
+  bottom: calc(0.75rem + env(safe-area-inset-bottom, 0px));
+}
+
+/* Inputs grandes y legibles */
+input {
+  font-family: var(--font-body);
+}
+
+/* Scrollbar amable */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(186, 230, 253, 0.3);
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: #7dd3fc;
+  border-radius: 8px;
+}
+
+/* Range sliders */
+input[type="range"] {
+  height: 8px;
+  border-radius: 8px;
+  background: #e2e8f0;
+  outline: none;
+  cursor: pointer;
+}
+input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, #38bdf8, #0284c7);
+  border: 3px solid white;
+  box-shadow: 0 2px 8px rgba(2, 132, 199, 0.4);
+}
+input[type="range"]::-moz-range-thumb {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, #38bdf8, #0284c7);
+  border: 3px solid white;
+  box-shadow: 0 2px 8px rgba(2, 132, 199, 0.4);
+}
+
+/* Utilidad: dvh fallback */
+.min-h-dvh {
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+/* Animación flotante para decoraciones */
+@keyframes floaty {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(3deg); }
+}
+.animate-floaty {
+  animation: floaty 4s ease-in-out infinite;
+}
+
+/* Reducir movimiento si el usuario lo pide */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Breakpoints de referencia: <375px, 375-480px, 768px+ */
+@media (max-width: 374px) {
+  .font-display {
+    letter-spacing: -0.01em;
+  }
+}
