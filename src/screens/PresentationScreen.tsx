@@ -204,20 +204,20 @@ export default function PresentationScreen({ onExit }: { onExit: () => void }) {
     >
       {/* Header */}
       <div className="border-b-2 border-indigo-100 bg-white/80 backdrop-blur">
-        <div className="mx-auto flex w-full max-w-4xl items-center gap-3 px-4 py-3">
+        <div className="mx-auto flex w-full max-w-4xl items-center gap-2 px-3 py-3 sm:items-center sm:gap-3 sm:px-4">
           <Logo size={40} />
           <div className="min-w-0 flex-1">
-            <h1 className="font-display truncate text-lg font-black leading-tight text-slate-900">Guía para padres de familia</h1>
-            <p className="text-xs font-bold text-slate-500">Aprende Jugando con TD · Así funciona la aventura</p>
+            <h1 className="font-display truncate text-sm font-black leading-tight text-slate-900 sm:text-lg">Guía para padres de familia</h1>
+            <p className="hidden text-xs font-bold text-slate-500 sm:block">Aprende Jugando con TD · Así funciona la aventura</p>
           </div>
-          <button onClick={onExit} className="flex h-11 items-center gap-1.5 rounded-2xl bg-slate-100 px-3 text-sm font-black text-slate-600 active:scale-95">
-            <X className="h-4 w-4" /> Cerrar
+          <button onClick={onExit} className="flex h-10 shrink-0 items-center gap-1.5 rounded-2xl bg-slate-100 px-2.5 text-xs font-black text-slate-600 active:scale-95 sm:h-11 sm:px-3 sm:text-sm">
+            <X className="h-4 w-4" /> <span className="hidden sm:inline">Cerrar</span>
           </button>
         </div>
       </div>
 
       {/* Slide */}
-      <div className="mx-auto flex w-full max-w-4xl flex-1 flex-col px-4 py-5">
+      <div className="mx-auto flex w-full max-w-4xl flex-1 flex-col px-3 py-4 sm:px-4 sm:py-5">
         <AnimatePresence mode="wait">
           <motion.div
             key={idx}
@@ -230,19 +230,19 @@ export default function PresentationScreen({ onExit }: { onExit: () => void }) {
             {idx === 0 && (
               <div className="flex flex-1 flex-col items-center justify-center text-center">
                 <Logo size={120} />
-                <h2 className="font-display mt-4 text-4xl font-black text-slate-900">
+                <h2 className="font-display mt-4 text-2xl font-black text-slate-900 sm:text-4xl">
                   Aprende <span className="text-sky-500">Jugando</span> con TD
                 </h2>
                 <p className="mt-2 max-w-lg text-lg font-bold text-slate-600">
                   Tu hijo o hija de 6 años aprenderá a <b>leer, escribir, sumar y restar</b> en <b>6 meses</b>, jugando ~1 hora al día con su robot compañero.
                 </p>
-                <p className="mt-4 rounded-full bg-indigo-100 px-4 py-2 text-sm font-black text-indigo-700">Desliza o toca "Siguiente" para conocer el sistema →</p>
+                <p className="mt-4 rounded-full bg-indigo-100 px-4 py-2 text-xs font-black text-indigo-700 sm:text-sm">Desliza o toca "Siguiente" para conocer el sistema →</p>
               </div>
             )}
 
             {idx === 1 && (
               <div className="flex flex-1 flex-col justify-center">
-                <h2 className="font-display text-3xl font-black text-slate-900">¿Qué vamos a lograr? 🎯</h2>
+                <h2 className="font-display text-2xl font-black text-slate-900 sm:text-3xl">¿Qué vamos a lograr? 🎯</h2>
                 <div className="mt-4 grid grid-cols-2 gap-3 md:grid-cols-4">
                   {[
                     { e: '📖', t: 'Leer', d: 'De vocales a cuentos cortos con preguntas de comprensión', c: 'from-rose-400 to-pink-600' },
@@ -257,7 +257,7 @@ export default function PresentationScreen({ onExit }: { onExit: () => void }) {
                     </div>
                   ))}
                 </div>
-                <div className="mt-4 grid gap-2 text-sm font-bold text-slate-600 md:grid-cols-3">
+                <div className="mt-4 grid gap-2 text-xs font-bold text-slate-600 sm:text-sm md:grid-cols-3">
                   <p className="rounded-2xl bg-white p-3 shadow ring-1 ring-slate-100">📅 <b>24 semanas</b> · ~1 hora diaria</p>
                   <p className="rounded-2xl bg-white p-3 shadow ring-1 ring-slate-100">📱 En el celular o tablet que ya tienen en casa</p>
                   <p className="rounded-2xl bg-white p-3 shadow ring-1 ring-slate-100">🔒 Sin contraseñas, sin anuncios; los datos no salen del equipo</p>
@@ -269,7 +269,7 @@ export default function PresentationScreen({ onExit }: { onExit: () => void }) {
               <div className="flex flex-1 flex-col items-center justify-center gap-5 md:flex-row md:gap-10">
                 <PhoneMock caption="Paso 1: escribe su nombre y elige su personaje"><MockOnboarding /></PhoneMock>
                 <div className="max-w-md">
-                  <h2 className="font-display text-3xl font-black text-slate-900">El niño entra solo 🚪</h2>
+                  <h2 className="font-display text-2xl font-black text-slate-900 sm:text-3xl">El niño entra solo 🚪</h2>
                   <p className="mt-2 text-base font-semibold text-slate-600">Sin ayuda de un adulto ni contraseñas:</p>
                   <ol className="mt-3 space-y-2 text-sm font-bold text-slate-700">
                     <li className="rounded-2xl bg-white p-3 shadow ring-1 ring-slate-100">1️⃣ Escribe su nombre con un <b>teclado gigante</b> en pantalla.</li>
@@ -283,7 +283,7 @@ export default function PresentationScreen({ onExit }: { onExit: () => void }) {
             {idx === 3 && (
               <div className="flex flex-1 flex-col items-center justify-center gap-5 md:flex-row md:gap-10">
                 <div className="max-w-md">
-                  <h2 className="font-display text-3xl font-black text-slate-900">TD: el maestro que habla 🤖</h2>
+                  <h2 className="font-display text-2xl font-black text-slate-900 sm:text-3xl">TD: el maestro que habla 🤖</h2>
                   <p className="mt-2 text-base font-semibold text-slate-600">Un robot paciente, alegre y bilingüe de voz. TD es quien realmente enseña:</p>
                   <ul className="mt-3 space-y-2 text-sm font-bold text-slate-700">
                     {[
@@ -310,7 +310,7 @@ export default function PresentationScreen({ onExit }: { onExit: () => void }) {
               <div className="flex flex-1 flex-col items-center justify-center gap-5 md:flex-row md:gap-10">
                 <PhoneMock caption="El mapa de 24 semanas, en 4 mundos"><MockMap /></PhoneMock>
                 <div className="max-w-md">
-                  <h2 className="font-display text-3xl font-black text-slate-900">Un mapa de aventura 🗺️</h2>
+                  <h2 className="font-display text-2xl font-black text-slate-900 sm:text-3xl">Un mapa de aventura 🗺️</h2>
                   <p className="mt-2 text-base font-semibold text-slate-600">No es una lista de tareas: es un viaje que su hijo desbloquea:</p>
                   <ul className="mt-3 space-y-2 text-sm font-bold text-slate-700">
                     {[
@@ -331,7 +331,7 @@ export default function PresentationScreen({ onExit }: { onExit: () => void }) {
 
             {idx === 5 && (
               <div className="flex flex-1 flex-col justify-center">
-                <h2 className="font-display text-3xl font-black text-slate-900">El secreto del método: 4 pasos fijos 🧠</h2>
+                <h2 className="font-display text-2xl font-black text-slate-900 sm:text-3xl">El secreto del método: 4 pasos fijos 🧠</h2>
                 <p className="mt-1 text-base font-semibold text-slate-600">Cada actividad, <b>sin excepción</b>, sigue la secuencia probada con niños de 6 años. La primera vez, TD la narra completa; después el niño puede pedir que se la recuerde.</p>
                 <div className="mt-4 grid gap-3 md:grid-cols-2">
                   <StepBadge n={1} emoji="👋" titulo="Introducción breve" desc="TD explica en 1-2 frases qué se va a practicar y para qué sirve." color="from-sky-400 to-blue-600" />
@@ -346,7 +346,7 @@ export default function PresentationScreen({ onExit }: { onExit: () => void }) {
               <div className="flex flex-1 flex-col items-center justify-center gap-5 md:flex-row md:gap-10">
                 <PhoneMock caption="Cada ejercicio tiene sus manipulables"><MockActividad /></PhoneMock>
                 <div className="max-w-md">
-                  <h2 className="font-display text-3xl font-black text-slate-900">Las 4 materias, bien hechas 🎓</h2>
+                  <h2 className="font-display text-2xl font-black text-slate-900 sm:text-3xl">Las 4 materias, bien hechas 🎓</h2>
                   <ul className="mt-3 space-y-2 text-sm font-bold text-slate-700">
                     <li className="rounded-2xl bg-white p-3 shadow ring-1 ring-slate-100">📖 <b>Leer:</b> escalera sin saltos — vocales → sílabas → palabras → frases → cuentos. Solo avanza al dominar (≥80% de aciertos).</li>
                     <li className="rounded-2xl bg-white p-3 shadow ring-1 ring-slate-100">✏️ <b>Escribir:</b> animación del trazo, guía punteada y puntaje por <b>cobertura, orden y dirección</b>; mayúsculas y minúsculas.</li>
@@ -359,7 +359,7 @@ export default function PresentationScreen({ onExit }: { onExit: () => void }) {
 
             {idx === 7 && (
               <div className="flex flex-1 flex-col justify-center">
-                <h2 className="font-display text-3xl font-black text-slate-900">Motivación que se gana, no se compra 🏆</h2>
+                <h2 className="font-display text-2xl font-black text-slate-900 sm:text-3xl">Motivación que se gana, no se compra 🏆</h2>
                 <div className="mt-4 grid grid-cols-2 gap-3 md:grid-cols-4">
                   {[
                     { e: '⭐', t: 'Estrellas', d: '1 a 3 por cada sesión, según su desempeño real' },
@@ -385,7 +385,7 @@ export default function PresentationScreen({ onExit }: { onExit: () => void }) {
               <div className="flex flex-1 flex-col items-center justify-center gap-5 md:flex-row md:gap-10">
                 <PhoneMock caption="Lo que ustedes pueden revisar"><MockPanel /></PhoneMock>
                 <div className="max-w-md">
-                  <h2 className="font-display text-3xl font-black text-slate-900">Para ustedes: Panel del adulto 🔐</h2>
+                  <h2 className="font-display text-2xl font-black text-slate-900 sm:text-3xl">Para ustedes: Panel del adulto 🔐</h2>
                   <p className="mt-2 text-base font-semibold text-slate-600">Protegido (resolver una suma o mantener presionado 3s) para que los niños no entren:</p>
                   <ul className="mt-3 space-y-2 text-sm font-bold text-slate-700">
                     <li className="rounded-2xl bg-white p-3 shadow ring-1 ring-slate-100">📊 Progreso por materia, semana, precisión y tiempo de uso.</li>
@@ -399,7 +399,7 @@ export default function PresentationScreen({ onExit }: { onExit: () => void }) {
 
             {idx === 9 && (
               <div className="flex flex-1 flex-col justify-center">
-                <h2 className="font-display text-3xl font-black text-slate-900">Lo que sí necesitan ustedes 💪</h2>
+                <h2 className="font-display text-2xl font-black text-slate-900 sm:text-3xl">Lo que sí necesitan ustedes 💪</h2>
                 <div className="mt-4 grid gap-3 md:grid-cols-2">
                   {[
                     ['⏰', '1 hora al día', 'En un lugar tranquilo, con el volumen audible. El sistema está diseñado en sesiones de ~12 minutos.'],
@@ -425,13 +425,13 @@ export default function PresentationScreen({ onExit }: { onExit: () => void }) {
             {idx === 10 && (
               <div className="flex flex-1 flex-col items-center justify-center text-center">
                 <TDRobot mood="fiesta" size={130} />
-                <h2 className="font-display mt-2 text-4xl font-black text-slate-900">¿Empezamos? 🚀</h2>
+                <h2 className="font-display mt-2 text-3xl font-black text-slate-900 sm:text-4xl">¿Empezamos? 🚀</h2>
                 <p className="mt-2 max-w-lg text-base font-bold text-slate-600">
                   Recuerden: <b>leer, escribir, sumar y restar</b> · 24 semanas · 1 hora diaria · y un robot que los acompaña en cada paso.
                 </p>
                 <button
                   onClick={onExit}
-                  className="font-display mt-6 flex min-h-[64px] items-center gap-3 rounded-3xl bg-gradient-to-b from-sky-500 to-blue-600 px-8 text-2xl font-black text-white shadow-xl active:scale-95"
+                  className="font-display mt-6 flex min-h-[56px] items-center gap-2 rounded-3xl bg-gradient-to-b from-sky-500 to-blue-600 px-6 text-xl font-black text-white shadow-xl active:scale-95 sm:min-h-[64px] sm:gap-3 sm:px-8 sm:text-2xl"
                 >
                   <Play className="h-6 w-6 fill-white" /> ¡Entra a la app!
                 </button>
@@ -442,37 +442,37 @@ export default function PresentationScreen({ onExit }: { onExit: () => void }) {
         </AnimatePresence>
 
         {/* Navegación */}
-        <div className="mt-5 flex items-center justify-between gap-3 pb-2">
+        <div className="mt-4 flex items-center justify-between gap-2 pb-2 sm:mt-5 sm:gap-3">
           <button
             onClick={prev}
             disabled={idx === 0}
-            className="flex min-h-[52px] items-center gap-1 rounded-2xl bg-white px-4 font-display text-base font-black text-slate-700 shadow ring-2 ring-slate-100 transition active:scale-95 disabled:opacity-30"
+            className="flex min-h-[48px] items-center gap-1 rounded-2xl bg-white px-3 font-display text-sm font-black text-slate-700 shadow ring-2 ring-slate-100 transition active:scale-95 disabled:opacity-30 sm:min-h-[52px] sm:px-4 sm:text-base"
           >
-            <ChevronLeft className="h-5 w-5" /> Anterior
+            <ChevronLeft className="h-4 w-4 sm:h-5 sm:w-5" /> <span className="hidden sm:inline">Anterior</span>
           </button>
-          <div className="flex gap-1.5">
+          <div className="flex gap-1 sm:gap-1.5">
             {Array.from({ length: TOTAL }, (_, i) => (
               <button
                 key={i}
                 onClick={() => setIdx(i)}
                 aria-label={`Ir al paso ${i + 1}`}
-                className={`h-2.5 rounded-full transition-all ${i === idx ? 'w-7 bg-indigo-500' : 'w-2.5 bg-slate-300'}`}
+                className={`h-2.5 rounded-full transition-all ${i === idx ? 'w-5 sm:w-7 bg-indigo-500' : 'w-2.5 bg-slate-300'}`}
               />
             ))}
           </div>
           {idx < TOTAL - 1 ? (
             <button
               onClick={next}
-              className="flex min-h-[52px] items-center gap-1 rounded-2xl bg-gradient-to-b from-indigo-500 to-violet-600 px-5 font-display text-base font-black text-white shadow-lg transition active:scale-95"
+              className="flex min-h-[48px] items-center gap-1 rounded-2xl bg-gradient-to-b from-indigo-500 to-violet-600 px-3 font-display text-sm font-black text-white shadow-lg transition active:scale-95 sm:min-h-[52px] sm:px-5 sm:text-base"
             >
-              Siguiente <ChevronRight className="h-5 w-5" />
+              Siguiente <ChevronRight className="h-4 w-4 sm:h-5 sm:w-5" />
             </button>
           ) : (
             <button
               onClick={onExit}
-              className="flex min-h-[52px] items-center gap-1 rounded-2xl bg-gradient-to-b from-sky-500 to-blue-600 px-5 font-display text-base font-black text-white shadow-lg transition active:scale-95"
+              className="flex min-h-[48px] items-center gap-1 rounded-2xl bg-gradient-to-b from-sky-500 to-blue-600 px-3 font-display text-sm font-black text-white shadow-lg transition active:scale-95 sm:min-h-[52px] sm:px-5 sm:text-base"
             >
-              <ArrowRight className="h-5 w-5" /> Entrar
+              <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5" /> Entrar
             </button>
           )}
         </div>

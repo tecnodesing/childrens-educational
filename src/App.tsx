@@ -293,7 +293,7 @@ export default function App() {
   }
 
   return (
-    <div className="font-body min-h-dvh text-slate-900">
+    <div className="font-body min-h-dvh overflow-x-hidden text-slate-900">
       <AnimatePresence>
         {showRest && (
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/70 p-4 backdrop-blur-sm">

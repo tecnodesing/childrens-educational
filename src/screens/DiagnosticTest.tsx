@@ -125,7 +125,7 @@ export default function DiagnosticTest({ nombre, onFinish }: { nombre: string; o
               </div>
             </div>
 
-            <div className="mt-6 grid grid-cols-3 gap-3">
+            <div className="mt-4 grid grid-cols-3 gap-2 sm:mt-6 sm:gap-3">
               {actual.opciones.map((op) => {
                 const fueElegido = elegido === op;
                 const esResp = op === actual.respuesta;
@@ -134,7 +134,7 @@ export default function DiagnosticTest({ nombre, onFinish }: { nombre: string; o
                     key={op}
                     whileTap={{ scale: 0.92 }}
                     onClick={() => elegir(op)}
-                    className={`font-display flex min-h-[110px] items-center justify-center rounded-3xl text-4xl font-black shadow-lg transition ${
+                    className={`font-display flex min-h-[90px] items-center justify-center rounded-3xl text-3xl font-black shadow-lg transition sm:min-h-[110px] sm:text-4xl ${
                       fueElegido && !esResp
                         ? 'bg-rose-400 text-white ring-4 ring-rose-200'
                         : fueElegido && esResp
@@ -162,7 +162,7 @@ export default function DiagnosticTest({ nombre, onFinish }: { nombre: string; o
         ) : (
           <div className="flex flex-1 flex-col items-center justify-center text-center">
             <TDRobot mood="fiesta" size={140} />
-            <h2 className="font-display mt-4 text-3xl font-black text-violet-950">¡Lo hiciste genial, {nombre}! 🎉</h2>
+            <h2 className="font-display mt-4 break-words text-2xl font-black text-violet-950 sm:text-3xl">¡Lo hiciste genial, {nombre}! 🎉</h2>
             <p className="font-body mt-2 font-bold text-slate-600">Acertaste {aciertos} de {PASOS.length}. TD ya sabe por dónde empezar.</p>
           </div>
         )}

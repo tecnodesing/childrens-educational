@@ -42,23 +42,23 @@ export default function ProgressScreen({ perfil, onBack }: { perfil: Perfil; onB
 
       <div className="mx-auto w-full max-w-2xl px-3 pt-4 sm:px-4">
         {/* Héroe */}
-        <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} className={`rounded-3xl bg-gradient-to-br ${pj.gradiente} p-5 text-white shadow-xl`}>
-          <div className="flex items-center gap-4">
-            <span className="flex h-20 w-20 items-center justify-center rounded-3xl bg-white/25 text-5xl">{pj.emoji}</span>
-            <div>
-              <h2 className="font-display text-2xl font-black">{perfil.nombre}</h2>
-              <p className="text-sm font-bold opacity-90">{pj.nombre} · Semana {perfil.progreso.semanaActual} · Bloque {perfil.progreso.bloqueActual}</p>
+        <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} className={`rounded-3xl bg-gradient-to-br ${pj.gradiente} p-4 text-white shadow-xl sm:p-5`}>
+          <div className="flex items-center gap-3 sm:gap-4">
+            <span className="flex h-16 w-16 shrink-0 items-center justify-center rounded-3xl bg-white/25 text-4xl sm:h-20 sm:w-20 sm:text-5xl">{pj.emoji}</span>
+            <div className="min-w-0">
+              <h2 className="font-display truncate text-xl font-black sm:text-2xl">{perfil.nombre}</h2>
+              <p className="truncate text-xs font-bold opacity-90 sm:text-sm">{pj.nombre} · Sem {perfil.progreso.semanaActual} · Blq {perfil.progreso.bloqueActual}</p>
             </div>
           </div>
-          <div className="mt-4 grid grid-cols-4 gap-2">
+          <div className="mt-3 grid grid-cols-4 gap-1.5 sm:mt-4 sm:gap-2">
             {[
               { icon: <Star className="h-4 w-4 fill-amber-300 text-amber-300" />, v: estrellas, l: 'Estrellas' },
               { icon: <Coins className="h-4 w-4" />, v: perfil.progreso.monedas, l: 'Monedas' },
               { icon: <Flame className="h-4 w-4" />, v: perfil.progreso.rachaDias, l: 'Racha' },
               { icon: <Target className="h-4 w-4" />, v: `${precision}%`, l: 'Aciertos' },
             ].map((s, i) => (
-              <div key={i} className="rounded-2xl bg-white/20 p-2 text-center">
-                <div className="flex items-center justify-center gap-1 font-display text-lg font-black">{s.icon} {s.v}</div>
+              <div key={i} className="rounded-2xl bg-white/20 p-1.5 text-center sm:p-2">
+                <div className="flex items-center justify-center gap-0.5 font-display text-base font-black sm:gap-1 sm:text-lg">{s.icon} {s.v}</div>
                 <div className="text-[10px] font-black uppercase opacity-80">{s.l}</div>
               </div>
             ))}
@@ -68,12 +68,12 @@ export default function ProgressScreen({ perfil, onBack }: { perfil: Perfil; onB
         {/* Mascota */}
         <div className="mt-3 rounded-3xl bg-white p-4 shadow-lg">
           <h3 className="font-display text-lg font-black text-slate-900">Mi mascota 🐾</h3>
-          <div className="mt-2 flex items-center gap-4">
-            <motion.span animate={{ y: [0, -6, 0] }} transition={{ duration: 2, repeat: Infinity }} className="text-7xl">
+          <div className="mt-2 flex items-center gap-3 sm:gap-4">
+            <motion.span animate={{ y: [0, -6, 0] }} transition={{ duration: 2, repeat: Infinity }} className="text-6xl sm:text-7xl">
               {etapas[etapa].emoji}
             </motion.span>
-            <div>
-              <p className="font-display text-xl font-black text-violet-700">{etapas[etapa].nombre}</p>
+            <div className="min-w-0">
+              <p className="font-display text-lg font-black text-violet-700 sm:text-xl">{etapas[etapa].nombre}</p>
               <p className="text-sm font-bold text-slate-500">{etapas[etapa].msg}</p>
               <div className="mt-2 flex gap-1">
                 {[0, 1, 2, 3].map((e) => (
@@ -131,8 +131,8 @@ export default function ProgressScreen({ perfil, onBack }: { perfil: Perfil; onB
             <h3 className="font-display text-lg font-black text-slate-900">Mi historia 📜</h3>
             <div className="mt-2 space-y-1.5">
               {perfil.progreso.historialSemanal.slice(-5).reverse().map((h, i) => (
-                <div key={i} className="flex items-center gap-2 rounded-2xl bg-sky-50 p-2.5 text-sm font-bold text-slate-700">
-                  <span className="text-xl">🎉</span> Semana {h.semana}: {h.resumen} <span className="ml-auto text-xs text-slate-400">{h.fecha}</span>
+                <div key={i} className="flex items-center gap-2 rounded-2xl bg-sky-50 p-2 text-xs font-bold text-slate-700 sm:p-2.5 sm:text-sm">
+                  <span className="text-lg sm:text-xl">🎉</span> <span className="min-w-0 truncate">Sem {h.semana}: {h.resumen}</span> <span className="ml-auto shrink-0 text-[10px] text-slate-400 sm:text-xs">{h.fecha}</span>
                 </div>
               ))}
             </div>

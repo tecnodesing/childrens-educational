@@ -97,15 +97,15 @@ export default function OnboardingScreen({
         </div>
 
         {/* TD saludo */}
-        <div className="mt-4 flex items-end gap-3">
-          <button onClick={saludar} className="shrink-0 rounded-full bg-white p-1 shadow-xl ring-4 ring-sky-300 transition active:scale-95" aria-label="Saludar a TD">
-            <TDRobot mood={saludoHecho ? 'feliz' : 'pensando'} size={84} />
-          </button>
-          <motion.div
-            initial={{ opacity: 0, x: -10 }}
-            animate={{ opacity: 1, x: 0 }}
-            className="flex-1 rounded-3xl rounded-bl-md border-2 border-sky-200 bg-white/95 p-4 shadow-lg"
-          >
+            <div className="flex items-center gap-2 sm:gap-3">
+              <button onClick={saludar} className="shrink-0 rounded-full bg-white p-1 shadow-xl ring-4 ring-sky-300 transition active:scale-95" aria-label="Saludar a TD">
+                <TDRobot mood={saludoHecho ? 'feliz' : 'pensando'} size={72} />
+              </button>
+              <motion.div
+                initial={{ opacity: 0, x: -10 }}
+                animate={{ opacity: 1, x: 0 }}
+                className="min-w-0 flex-1 rounded-3xl rounded-bl-md border-2 border-sky-200 bg-white/95 p-3 shadow-lg sm:p-4"
+              >
             {!saludoHecho ? (
               <button onClick={saludar} className="w-full text-left">
                 <p className="font-display text-lg font-black text-sky-900">¡Hola! Soy TD 🤖</p>
@@ -126,8 +126,7 @@ export default function OnboardingScreen({
         </div>
 
         {paso === 'nombre' ? (
-          <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} className="mt-5">
-            {/* Campo nombre */}
+          <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} className="mt-4 sm:mt-5">
             <div className="rounded-3xl bg-white p-4 shadow-xl">
               <label className="text-xs font-black uppercase tracking-widest text-sky-600">Mi nombre es</label>
               <div className="mt-1 flex items-center gap-2">
@@ -146,17 +145,17 @@ export default function OnboardingScreen({
                 )}
               </div>
               {/* Teclado en pantalla */}
-              <div className="mt-3 grid grid-cols-7 gap-1.5 sm:grid-cols-9">
+              <div className="mt-3 grid grid-cols-6 gap-1 sm:grid-cols-7 sm:gap-1.5 md:grid-cols-9">
                 {TECLAS.map((t) => (
                   <button
                     key={t}
                     onClick={() => pressTecla(t)}
-                    className="flex min-h-[48px] items-center justify-center rounded-xl bg-gradient-to-b from-sky-500 to-sky-600 font-display text-lg font-black text-white shadow transition active:scale-90 active:from-sky-600"
+                    className="flex min-h-[42px] items-center justify-center rounded-xl bg-gradient-to-b from-sky-500 to-sky-600 font-display text-base font-black text-white shadow transition active:scale-90 active:from-sky-600 sm:min-h-[48px] sm:text-lg"
                   >
                     {t}
                   </button>
                 ))}
-                <button onClick={() => setNombre((n) => n.slice(0, -1))} className="flex min-h-[48px] items-center justify-center rounded-xl bg-slate-200 text-slate-600 active:scale-90" aria-label="Borrar letra">
+                <button onClick={() => setNombre((n) => n.slice(0, -1))} className="flex min-h-[42px] items-center justify-center rounded-xl bg-slate-200 text-slate-600 active:scale-90 sm:min-h-[48px]" aria-label="Borrar letra">
                   <Delete className="h-5 w-5" />
                 </button>
               </div>
@@ -191,8 +190,8 @@ export default function OnboardingScreen({
             )}
           </motion.div>
         ) : (
-          <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} className="mt-5">
-            <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+          <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} className="mt-4 sm:mt-5">
+            <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
               {PERSONAJES.map((pj) => {
                 const sel = personaje === pj.id;
                 return (

@@ -125,8 +125,8 @@ export default function ParentDashboard({
 
   if (!unlocked) {
     return (
-      <div className="flex min-h-dvh flex-col items-center justify-center bg-slate-900 px-4">
-        <div className="w-full max-w-sm rounded-3xl bg-white p-6 text-center shadow-2xl">
+      <div className="flex min-h-dvh flex-col items-center justify-center bg-slate-900 px-3 sm:px-4">
+        <div className="w-full max-w-sm rounded-3xl bg-white p-5 text-center shadow-2xl sm:p-6">
           <button onClick={onBack} className="mb-2 flex items-center gap-1 text-sm font-bold text-slate-500"><ArrowLeft className="h-4 w-4" /> Volver</button>
           <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-slate-100"><Lock className="h-8 w-8 text-slate-600" /></div>
           <h2 className="font-display mt-3 text-2xl font-black text-slate-900">Zona de adultos 🔐</h2>
@@ -177,7 +177,7 @@ export default function ParentDashboard({
         {/* Presentación para padres */}
         <button
           onClick={() => { sfx.click(); tdVoice.stop(); onPresentation(); }}
-          className="flex w-full items-center justify-center gap-2 rounded-3xl bg-gradient-to-r from-indigo-500 to-violet-600 p-4 font-display text-lg font-black text-white shadow-lg transition active:scale-[0.98]"
+          className="flex w-full items-center justify-center gap-2 rounded-3xl bg-gradient-to-r from-indigo-500 to-violet-600 p-3 font-display text-sm font-black text-white shadow-lg transition active:scale-[0.98] sm:p-4 sm:text-lg"
         >
           📽️ Ver presentación para padres de familia <span className="rounded-full bg-white/25 px-2 py-0.5 text-xs">2 min</span>
         </button>
@@ -251,22 +251,22 @@ export default function ParentDashboard({
               </div>
             ))}
           </div>
-          <div className="mt-3 grid gap-3 sm:grid-cols-2">
-            <div className="rounded-2xl bg-slate-50 p-3">
-              <label className="flex items-center gap-1 text-xs font-black uppercase text-slate-500"><Gauge className="h-4 w-4" /> Velocidad: {rate.toFixed(2)}</label>
+          <div className="mt-3 grid gap-2 sm:grid-cols-2 sm:gap-3">
+            <div className="rounded-2xl bg-slate-50 p-2.5 sm:p-3">
+              <label className="flex items-center gap-1 text-[10px] font-black uppercase text-slate-500 sm:text-xs"><Gauge className="h-3.5 w-3.5 sm:h-4 sm:w-4" /> Velocidad: {rate.toFixed(2)}</label>
               <input type="range" min={0.75} max={1.1} step={0.05} value={rate} onChange={(e) => setRate(parseFloat(e.target.value))} className="mt-2 w-full accent-sky-500" />
             </div>
-            <div className="rounded-2xl bg-slate-50 p-3">
-              <label className="flex items-center gap-1 text-xs font-black uppercase text-slate-500"><AudioLines className="h-4 w-4" /> Tono: {pitch.toFixed(2)}</label>
+            <div className="rounded-2xl bg-slate-50 p-2.5 sm:p-3">
+              <label className="flex items-center gap-1 text-[10px] font-black uppercase text-slate-500 sm:text-xs"><AudioLines className="h-3.5 w-3.5 sm:h-4 sm:w-4" /> Tono: {pitch.toFixed(2)}</label>
               <input type="range" min={1.0} max={1.3} step={0.05} value={pitch} onChange={(e) => setPitch(parseFloat(e.target.value))} className="mt-2 w-full accent-violet-500" />
             </div>
           </div>
-          <div className="mt-3 flex items-center gap-2">
-            <button onClick={() => probarVoz()} className="flex min-h-[52px] flex-1 items-center justify-center gap-2 rounded-2xl bg-slate-100 font-black text-slate-700 active:scale-95">
-              <Volume2 className="h-5 w-5" /> Vista previa
+          <div className="mt-3 flex gap-2">
+            <button onClick={() => probarVoz()} className="flex min-h-[44px] flex-1 items-center justify-center gap-1.5 rounded-2xl bg-slate-100 font-black text-xs text-slate-700 active:scale-95 sm:min-h-[52px] sm:gap-2 sm:text-sm">
+              <Volume2 className="h-4 w-4 sm:h-5 sm:w-5" /> Probar
             </button>
-            <button onClick={guardarVoz} className="flex min-h-[52px] flex-1 items-center justify-center gap-2 rounded-2xl bg-gradient-to-b from-sky-500 to-blue-600 font-display font-black text-white shadow active:scale-95">
-              {guardado ? <><Check className="h-5 w-5" /> ¡Guardado!</> : 'Guardar voz'}
+            <button onClick={guardarVoz} className="flex min-h-[44px] flex-1 items-center justify-center gap-1.5 rounded-2xl bg-gradient-to-b from-sky-500 to-blue-600 font-display font-black text-xs text-white shadow active:scale-95 sm:min-h-[52px] sm:gap-2 sm:text-sm">
+              {guardado ? <><Check className="h-4 w-4 sm:h-5 sm:w-5" /> ¡Guardado!</> : 'Guardar'}
             </button>
           </div>
           <label className="mt-3 flex cursor-pointer items-center justify-between rounded-2xl bg-slate-50 p-3">
@@ -281,11 +281,11 @@ export default function ParentDashboard({
         <section className="rounded-3xl bg-white p-4 shadow">
           <h2 className="font-display text-lg font-black text-slate-900">💾 Respaldo de progreso</h2>
           <div className="mt-3 flex gap-2">
-            <button onClick={exportar} className="flex min-h-[52px] flex-1 items-center justify-center gap-2 rounded-2xl bg-emerald-500 font-black text-white active:scale-95">
-              <Download className="h-5 w-5" /> Exportar .json
+            <button onClick={exportar} className="flex min-h-[44px] flex-1 items-center justify-center gap-1.5 rounded-2xl bg-emerald-500 font-black text-xs text-white active:scale-95 sm:min-h-[52px] sm:gap-2 sm:text-sm">
+              <Download className="h-4 w-4 sm:h-5 sm:w-5" /> Exportar
             </button>
-            <button onClick={() => fileRef.current?.click()} className="flex min-h-[52px] flex-1 items-center justify-center gap-2 rounded-2xl bg-amber-500 font-black text-white active:scale-95">
-              <Upload className="h-5 w-5" /> Importar
+            <button onClick={() => fileRef.current?.click()} className="flex min-h-[44px] flex-1 items-center justify-center gap-1.5 rounded-2xl bg-amber-500 font-black text-xs text-white active:scale-95 sm:min-h-[52px] sm:gap-2 sm:text-sm">
+              <Upload className="h-4 w-4 sm:h-5 sm:w-5" /> Importar
             </button>
             <input ref={fileRef} type="file" accept=".json" className="hidden" onChange={importar} />
           </div>
@@ -299,16 +299,16 @@ export default function ParentDashboard({
               const pj = PERSONAJES.find((x) => x.id === p.personaje);
               const activo = p.id === perfil.id;
               return (
-                <div key={p.id} className={`flex items-center gap-3 rounded-2xl p-3 ring-2 ${activo ? 'bg-sky-50 ring-sky-300' : 'bg-slate-50 ring-slate-100'}`}>
-                  <span className="text-3xl">{pj?.emoji}</span>
-                  <div className="flex-1">
-                    <div className="font-black text-slate-800">{p.nombre} {activo && <span className="ml-1 rounded-full bg-sky-500 px-2 py-0.5 text-[10px] uppercase text-white">activo</span>}</div>
-                    <div className="text-xs font-bold text-slate-400">Sem {p.progreso.semanaActual} · ⭐{p.progreso.estrellas} · {p.fechaCreacion}</div>
+                <div key={p.id} className={`flex items-center gap-2 rounded-2xl p-2.5 ring-2 sm:gap-3 sm:p-3 ${activo ? 'bg-sky-50 ring-sky-300' : 'bg-slate-50 ring-slate-100'}`}>
+                  <span className="text-2xl sm:text-3xl">{pj?.emoji}</span>
+                  <div className="min-w-0 flex-1">
+                    <div className="truncate font-black text-slate-800">{p.nombre} {activo && <span className="ml-1 inline-block rounded-full bg-sky-500 px-1.5 py-0.5 text-[9px] uppercase text-white sm:px-2 sm:text-[10px]">activo</span>}</div>
+                    <div className="truncate text-[10px] font-bold text-slate-400 sm:text-xs">Sem {p.progreso.semanaActual} · ⭐{p.progreso.estrellas} · {p.fechaCreacion}</div>
                   </div>
                   {!activo && (
-                    <button onClick={() => onSwitchProfile(p.id)} className="rounded-full bg-sky-500 px-4 py-2 text-xs font-black text-white active:scale-95">Usar</button>
+                    <button onClick={() => onSwitchProfile(p.id)} className="shrink-0 rounded-full bg-sky-500 px-3 py-1.5 text-[10px] font-black text-white active:scale-95 sm:px-4 sm:text-xs">Usar</button>
                   )}
-                  <button onClick={() => { if (confirm(`¿Borrar el perfil de ${p.nombre}?`)) onDeleteProfile(p.id); }} className="flex h-10 w-10 items-center justify-center rounded-full bg-rose-100 text-rose-600 active:scale-95" aria-label={`Borrar ${p.nombre}`}>
+                  <button onClick={() => { if (confirm(`¿Borrar el perfil de ${p.nombre}?`)) onDeleteProfile(p.id); }} className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-rose-100 text-rose-600 active:scale-95 sm:h-10 sm:w-10" aria-label={`Borrar ${p.nombre}`}>
                     <Trash2 className="h-4 w-4" />
                   </button>
                 </div>

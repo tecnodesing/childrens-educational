@@ -222,8 +222,8 @@ export default function ActivityRunner({
           {/* 0. INTRO-CHECK (ya vista antes) */}
           {fase === 'intro-check' && (
             <motion.div key="check" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -12 }} className="rounded-3xl bg-white p-6 text-center shadow-xl">
-              <TDRobot mood="feliz" size={110} />
-              <h2 className="font-display mt-2 text-2xl font-black text-sky-950">¡Ya conoces esta actividad! 🌟</h2>
+              <TDRobot mood="feliz" size={90} />
+              <h2 className="font-display mt-2 text-xl font-black text-sky-950 sm:text-2xl">¡Ya conoces esta actividad! 🌟</h2>
               <p className="font-body mt-1 font-bold text-slate-600">¿Quieres que TD te lo recuerde con el ejemplo?</p>
               <div className="mt-4 grid gap-2">
                 <button onClick={() => { sfx.pop(); setFase('guiada'); setIdxGuiada(0); }} className="font-display flex min-h-[60px] items-center justify-center gap-2 rounded-2xl bg-gradient-to-b from-green-400 to-emerald-600 text-lg font-black text-white shadow-lg active:scale-[0.98]">
@@ -304,10 +304,10 @@ export default function ActivityRunner({
           {/* 3 y 4. PRÁCTICA */}
           {(fase === 'guiada' || fase === 'independiente') && ejercicioActual && (
             <motion.div key={ejercicioActual.id} initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -12 }} className="rounded-3xl bg-white p-4 shadow-xl sm:p-5">
-              <div className={`mb-3 flex items-center justify-between rounded-2xl p-3 text-white ${fase === 'guiada' ? 'bg-gradient-to-r from-emerald-500 to-teal-600' : 'bg-gradient-to-r from-orange-500 to-rose-500'}`}>
-                <div>
-                  <p className="text-[11px] font-black uppercase tracking-widest opacity-90">
-                    {fase === 'guiada' ? `Paso 3 · Practicamos juntos 🤝 (${idxGuiada + 1}/${actividad.practicaGuiada.length})` : `Paso 4 · Tú solo 🚀 (${idxIndep + 1}/${actividad.practicaIndependiente.length})`}
+              <div className={`mb-3 flex items-center justify-between gap-2 rounded-2xl p-2.5 text-white sm:p-3 ${fase === 'guiada' ? 'bg-gradient-to-r from-emerald-500 to-teal-600' : 'bg-gradient-to-r from-orange-500 to-rose-500'}`}>
+                <div className="min-w-0">
+                  <p className="text-[9px] font-black uppercase tracking-widest opacity-90 sm:text-[11px]">
+                    {fase === 'guiada' ? `Paso 3 · Juntos 🤝 (${idxGuiada + 1}/${actividad.practicaGuiada.length})` : `Paso 4 · Tú solo 🚀 (${idxIndep + 1}/${actividad.practicaIndependiente.length})`}
                   </p>
                   <h2 className="font-display text-lg font-black leading-snug">{ejercicioActual.consigna}</h2>
                 </div>
@@ -342,8 +342,8 @@ export default function ActivityRunner({
           {/* 5. CELEBRACIÓN */}
           {fase === 'celebramiento' && resultado && (
             <motion.div key="fin" initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} className="rounded-3xl bg-white p-6 text-center shadow-xl">
-              <TDRobot mood="fiesta" size={120} />
-              <h2 className="font-display mt-2 flex items-center justify-center gap-2 text-3xl font-black text-slate-900">
+              <TDRobot mood="fiesta" size={100} />
+              <h2 className="font-display mt-2 flex items-center justify-center gap-1.5 text-2xl font-black text-slate-900 sm:gap-2 sm:text-3xl">
                 <PartyPopper className="h-7 w-7 text-rose-500" /> ¡Genial!
               </h2>
               <div className="mt-3 flex justify-center gap-2">

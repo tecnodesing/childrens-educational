@@ -41,18 +41,18 @@ export default function HomeMap({
     <div className="min-h-dvh bg-gradient-to-b from-sky-300 via-sky-100 to-amber-50 pb-32">
       {/* Header */}
       <div className="sticky top-0 z-30 border-b-2 border-sky-200/60 bg-white/85 backdrop-blur">
-        <div className="mx-auto flex w-full max-w-3xl items-center gap-2 px-3 py-2.5 sm:gap-3 sm:px-4">
-          <Logo size={44} />
-          <div className={`flex items-center gap-2 rounded-full bg-gradient-to-r ${pj.gradiente} py-1 pl-1 pr-3 text-white shadow`}>
-            <span className="flex h-9 w-9 items-center justify-center rounded-full bg-white/25 text-2xl">{pj.emoji}</span>
-            <div className="leading-tight">
-              <div className="font-display text-sm font-black">{perfil.nombre}</div>
-              <div className="text-[10px] font-bold opacity-90">Semana {perfil.progreso.semanaActual} · Bloque {perfil.progreso.bloqueActual}</div>
+        <div className="mx-auto flex w-full max-w-3xl items-center gap-1.5 px-3 py-2 sm:gap-3 sm:px-4">
+          <Logo size={40} />
+          <div className={`flex min-w-0 items-center gap-2 rounded-full bg-gradient-to-r ${pj.gradiente} py-1 pl-1 pr-2 text-white shadow sm:pr-3`}>
+            <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white/25 text-xl sm:h-9 sm:w-9 sm:text-2xl">{pj.emoji}</span>
+            <div className="min-w-0 leading-tight">
+              <div className="font-display text-xs font-black sm:text-sm">{perfil.nombre}</div>
+              <div className="text-[9px] font-bold opacity-90 sm:text-[10px]">Sem {perfil.progreso.semanaActual} · Blq {perfil.progreso.bloqueActual}</div>
             </div>
           </div>
-          <div className="ml-auto flex items-center gap-1.5">
-            <span className="flex items-center gap-1 rounded-full bg-amber-100 px-2.5 py-1.5 text-sm font-black text-amber-700">
-              <Star className="h-4 w-4 fill-amber-400 text-amber-400" /> {perfil.progreso.estrellas}
+          <div className="ml-auto flex items-center gap-1 sm:gap-1.5">
+            <span className="flex items-center gap-1 rounded-full bg-amber-100 px-2 py-1.5 text-xs font-black text-amber-700 sm:px-2.5 sm:text-sm">
+              <Star className="h-3.5 w-3.5 fill-amber-400 text-amber-400 sm:h-4 sm:w-4" /> {perfil.progreso.estrellas}
             </span>
             <span className="hidden items-center gap-1 rounded-full bg-orange-100 px-2.5 py-1.5 text-sm font-black text-orange-700 sm:flex">
               <Coins className="h-4 w-4" /> {perfil.progreso.monedas}
@@ -62,15 +62,15 @@ export default function HomeMap({
             </span>
           </div>
         </div>
-        <div className="mx-auto flex w-full max-w-3xl items-center gap-2 px-3 pb-2 sm:px-4">
-          <button onClick={() => { sfx.click(); onProgress(); }} className="flex min-h-[44px] flex-1 items-center justify-center gap-1.5 rounded-2xl bg-gradient-to-b from-violet-500 to-purple-600 text-sm font-black text-white shadow active:scale-95">
-            <Trophy className="h-4 w-4" /> Mis premios
+        <div className="mx-auto flex w-full max-w-3xl items-center gap-1.5 px-3 pb-2 sm:gap-2 sm:px-4">
+          <button onClick={() => { sfx.click(); onProgress(); }} className="flex min-h-[40px] flex-1 items-center justify-center gap-1 rounded-2xl bg-gradient-to-b from-violet-500 to-purple-600 text-xs font-black text-white shadow active:scale-95 sm:min-h-[44px] sm:gap-1.5 sm:text-sm">
+            <Trophy className="h-3.5 w-3.5 sm:h-4 sm:w-4" /> <span className="hidden sm:inline">Mis premios</span><span className="sm:hidden">Premios</span>
           </button>
-          <button onClick={() => { sfx.click(); onParent(); }} className="flex min-h-[44px] flex-1 items-center justify-center gap-1.5 rounded-2xl bg-slate-700 text-sm font-black text-white shadow active:scale-95">
-            <Users className="h-4 w-4" /> Adultos
+          <button onClick={() => { sfx.click(); onParent(); }} className="flex min-h-[40px] flex-1 items-center justify-center gap-1 rounded-2xl bg-slate-700 text-xs font-black text-white shadow active:scale-95 sm:min-h-[44px] sm:gap-1.5 sm:text-sm">
+            <Users className="h-3.5 w-3.5 sm:h-4 sm:w-4" /> Adultos
           </button>
-          <button onClick={() => { sfx.click(); onSettings(); }} className="flex min-h-[44px] w-12 items-center justify-center rounded-2xl bg-white text-slate-600 shadow ring-2 ring-slate-100 active:scale-95" aria-label="Ajustes">
-            <Settings className="h-5 w-5" />
+          <button onClick={() => { sfx.click(); onSettings(); }} className="flex min-h-[40px] w-10 items-center justify-center rounded-2xl bg-white text-slate-600 shadow ring-2 ring-slate-100 active:scale-95 sm:w-12" aria-label="Ajustes">
+            <Settings className="h-4 w-4 sm:h-5 sm:w-5" />
           </button>
         </div>
       </div>
@@ -82,19 +82,19 @@ export default function HomeMap({
           animate={{ opacity: 1, y: 0 }}
           className="mt-4 overflow-hidden rounded-3xl bg-gradient-to-r from-sky-500 via-blue-500 to-indigo-600 p-4 text-white shadow-xl"
         >
-          <div className="flex items-center justify-between gap-3">
-            <div>
-              <p className="text-xs font-black uppercase tracking-widest opacity-80">Tu aventura · {totalDone}/480 actividades</p>
-              <h2 className="font-display text-2xl font-black">Mapa de aventura 🗺️</h2>
-              <p className="text-sm font-semibold opacity-90">Sigue el camino y desbloquea semanas con TD.</p>
+            <div className="flex items-center justify-between gap-2">
+              <div className="min-w-0">
+                <p className="text-[10px] font-black uppercase tracking-widest opacity-80 sm:text-xs">Tu aventura · {totalDone}/480</p>
+                <h2 className="font-display text-lg font-black sm:text-2xl">Mapa de aventura 🗺️</h2>
+                <p className="text-xs font-semibold opacity-90 sm:text-sm">Sigue el camino y desbloquea semanas con TD.</p>
+              </div>
+              <button
+                onClick={() => jugar(perfil.progreso.semanaActual)}
+                className="font-display flex min-h-[48px] shrink-0 items-center gap-1.5 rounded-2xl bg-amber-400 px-3 text-sm font-black text-amber-950 shadow-lg transition active:scale-95 sm:min-h-[56px] sm:gap-2 sm:px-5 sm:text-lg"
+              >
+                <Play className="h-4 w-4 fill-amber-950 sm:h-5 sm:w-5" /> Jugar
+              </button>
             </div>
-            <button
-              onClick={() => jugar(perfil.progreso.semanaActual)}
-              className="font-display flex min-h-[56px] shrink-0 items-center gap-2 rounded-2xl bg-amber-400 px-5 text-lg font-black text-amber-950 shadow-lg transition active:scale-95"
-            >
-              <Play className="h-5 w-5 fill-amber-950" /> Jugar
-            </button>
-          </div>
           <div className="mt-3 h-3 overflow-hidden rounded-full bg-white/25">
             <div className="h-full rounded-full bg-gradient-to-r from-amber-300 to-yellow-400 transition-all" style={{ width: `${Math.min(100, (totalDone / 480) * 100)}%` }} />
           </div>
@@ -112,7 +112,7 @@ export default function HomeMap({
               <span className="ml-auto rounded-full bg-white/25 px-3 py-1 text-xs font-black">Sem {b.semanas[0]}–{b.semanas[5]}</span>
             </div>
 
-            <div className="mt-3 grid grid-cols-2 gap-3 sm:grid-cols-3">
+            <div className="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-3">
               {b.semanas.map((sem, i) => {
                 const unlocked = isWeekUnlocked(perfil, sem);
                 const prog = weekProgress(perfil, sem);
