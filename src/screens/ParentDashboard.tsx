@@ -160,8 +160,8 @@ export default function ParentDashboard({
   }
 
   return (
-    <div className="min-h-dvh bg-slate-100 pb-16">
-      <div className="sticky top-0 z-30 border-b bg-white/90 backdrop-blur">
+    <div className="flex h-dvh flex-col overflow-hidden bg-slate-100">
+      <div className="shrink-0 border-b bg-white/90 backdrop-blur">
         <div className="mx-auto flex w-full max-w-3xl items-center gap-3 px-3 py-3 sm:px-4">
           <button onClick={() => { tdVoice.stop(); onBack(); }} className="flex h-11 w-11 items-center justify-center rounded-2xl bg-slate-100 text-slate-700 active:scale-95" aria-label="Volver">
             <ArrowLeft className="h-5 w-5" />
@@ -173,7 +173,7 @@ export default function ParentDashboard({
         </div>
       </div>
 
-      <div className="mx-auto w-full max-w-3xl space-y-4 px-3 pt-4 sm:px-4">
+      <div className="mx-auto w-full max-w-3xl flex-1 space-y-4 overflow-y-auto px-3 pt-4 pb-8 sm:px-4">
         {/* Presentación para padres */}
         <button
           onClick={() => { sfx.click(); tdVoice.stop(); onPresentation(); }}

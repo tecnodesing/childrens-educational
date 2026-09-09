@@ -30,8 +30,8 @@ export default function ProgressScreen({ perfil, onBack }: { perfil: Perfil; onB
   }, []);
 
   return (
-    <div className="min-h-dvh bg-gradient-to-b from-violet-200 via-purple-50 to-amber-50 pb-32">
-      <div className="sticky top-0 z-30 border-b-2 border-violet-100 bg-white/85 backdrop-blur">
+    <div className="flex h-dvh flex-col overflow-hidden bg-gradient-to-b from-violet-200 via-purple-50 to-amber-50">
+      <div className="shrink-0 border-b-2 border-violet-100 bg-white/85 backdrop-blur">
         <div className="mx-auto flex w-full max-w-2xl items-center gap-3 px-3 py-3 sm:px-4">
           <button onClick={() => { sfx.click(); tdVoice.stop(); onBack(); }} className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-white text-slate-700 shadow ring-2 ring-slate-100 active:scale-95" aria-label="Volver">
             <ArrowLeft className="h-6 w-6" />
@@ -40,7 +40,7 @@ export default function ProgressScreen({ perfil, onBack }: { perfil: Perfil; onB
         </div>
       </div>
 
-      <div className="mx-auto w-full max-w-2xl px-3 pt-4 sm:px-4">
+      <div className="mx-auto w-full max-w-2xl flex-1 overflow-y-auto px-3 pt-4 pb-8 sm:px-4">
         {/* Héroe */}
         <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} className={`rounded-3xl bg-gradient-to-br ${pj.gradiente} p-4 text-white shadow-xl sm:p-5`}>
           <div className="flex items-center gap-3 sm:gap-4">

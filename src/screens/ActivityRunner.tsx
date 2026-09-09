@@ -180,9 +180,9 @@ export default function ActivityRunner({
     : null;
 
   return (
-    <div className="min-h-dvh bg-gradient-to-b from-sky-200 via-sky-50 to-amber-50 pb-40">
+    <div className="flex h-dvh flex-col overflow-hidden bg-gradient-to-b from-sky-200 via-sky-50 to-amber-50">
       {/* Header */}
-      <div className="sticky top-0 z-30 border-b-2 border-sky-100 bg-white/90 backdrop-blur">
+      <div className="shrink-0 border-b-2 border-sky-100 bg-white/90 backdrop-blur">
         <div className="mx-auto flex w-full max-w-2xl items-center gap-2 px-3 py-2.5 sm:px-4">
           <button onClick={() => { tdVoice.stop(); onExit(); }} className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-white text-slate-700 shadow ring-2 ring-slate-100 active:scale-95" aria-label="Salir de la actividad">
             <ArrowLeft className="h-5 w-5" />
@@ -217,7 +217,7 @@ export default function ActivityRunner({
         </div>
       </div>
 
-      <div className="mx-auto w-full max-w-2xl px-3 pt-4 sm:px-4">
+      <div className="mx-auto w-full max-w-2xl flex-1 overflow-y-auto px-3 pt-4 pb-8 sm:px-4">
         <AnimatePresence mode="wait">
           {/* 0. INTRO-CHECK (ya vista antes) */}
           {fase === 'intro-check' && (

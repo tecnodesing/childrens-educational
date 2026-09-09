@@ -25,8 +25,8 @@ export default function SettingsScreen({
   onPresentation: () => void;
 }) {
   return (
-    <div className="min-h-dvh bg-gradient-to-b from-sky-100 to-amber-50 pb-16">
-      <div className="sticky top-0 z-30 border-b-2 border-sky-100 bg-white/85 backdrop-blur">
+    <div className="flex h-dvh flex-col overflow-hidden bg-gradient-to-b from-sky-100 to-amber-50">
+      <div className="shrink-0 border-b-2 border-sky-100 bg-white/85 backdrop-blur">
         <div className="mx-auto flex w-full max-w-2xl items-center gap-2 px-3 py-3 sm:items-center sm:gap-3 sm:px-4">
           <button onClick={() => { sfx.click(); tdVoice.stop(); onBack(); }} className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-white text-slate-700 shadow ring-2 ring-slate-100 active:scale-95 sm:h-12 sm:w-12" aria-label="Volver">
             <ArrowLeft className="h-5 w-5 sm:h-6 sm:w-6" />
@@ -35,7 +35,7 @@ export default function SettingsScreen({
         </div>
       </div>
 
-      <div className="mx-auto w-full max-w-2xl space-y-3 px-3 pt-4 sm:px-4">
+      <div className="mx-auto w-full max-w-2xl flex-1 space-y-3 overflow-y-auto px-3 pt-4 pb-8 sm:px-4">
         <div className="flex justify-center py-2"><Logo withText size={60} /></div>
 
         {/* Perfiles */}

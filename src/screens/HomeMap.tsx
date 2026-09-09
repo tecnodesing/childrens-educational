@@ -38,9 +38,9 @@ export default function HomeMap({
   };
 
   return (
-    <div className="min-h-dvh bg-gradient-to-b from-sky-300 via-sky-100 to-amber-50 pb-32">
+    <div className="flex h-dvh flex-col overflow-hidden bg-gradient-to-b from-sky-300 via-sky-100 to-amber-50">
       {/* Header */}
-      <div className="sticky top-0 z-30 border-b-2 border-sky-200/60 bg-white/85 backdrop-blur">
+      <div className="shrink-0 border-b-2 border-sky-200/60 bg-white/85 backdrop-blur">
         <div className="mx-auto flex w-full max-w-3xl items-center gap-1.5 px-3 py-2 sm:gap-3 sm:px-4">
           <Logo size={40} />
           <div className={`flex min-w-0 items-center gap-2 rounded-full bg-gradient-to-r ${pj.gradiente} py-1 pl-1 pr-2 text-white shadow sm:pr-3`}>
@@ -75,7 +75,7 @@ export default function HomeMap({
         </div>
       </div>
 
-      <div className="mx-auto w-full max-w-3xl px-3 sm:px-4">
+      <div className="mx-auto w-full max-w-3xl flex-1 overflow-y-auto px-3 pt-3 pb-8 sm:px-4">
         {/* Banner actual */}
         <motion.div
           initial={{ opacity: 0, y: 12 }}
