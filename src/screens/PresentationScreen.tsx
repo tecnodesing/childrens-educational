@@ -192,7 +192,7 @@ export default function PresentationScreen({ onExit }: { onExit: () => void }) {
 
   return (
     <div
-      className="flex min-h-dvh flex-col bg-gradient-to-b from-indigo-50 via-sky-50 to-amber-50"
+      className="flex h-dvh flex-col overflow-hidden bg-gradient-to-b from-indigo-50 via-sky-50 to-amber-50"
       onTouchStart={(e) => { touchX.current = e.touches[0].clientX; }}
       onTouchEnd={(e) => {
         if (touchX.current === null) return;
@@ -216,17 +216,18 @@ export default function PresentationScreen({ onExit }: { onExit: () => void }) {
         </div>
       </div>
 
-      {/* Slide */}
-      <div className="mx-auto flex w-full max-w-4xl flex-1 flex-col px-3 py-4 sm:px-4 sm:py-5">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={idx}
-            initial={{ opacity: 0, x: 40 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -40 }}
-            transition={{ duration: 0.25 }}
-            className="flex flex-1 flex-col"
-          >
+      {/* Slide + Navegación */}
+      <div className="flex min-h-0 flex-1 flex-col">
+        <div className="mx-auto flex w-full max-w-4xl flex-1 flex-col overflow-y-auto px-3 py-4 sm:px-4 sm:py-5">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, x: 40 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -40 }}
+              transition={{ duration: 0.25 }}
+              className="flex min-h-full flex-col justify-start"
+            >
             {idx === 0 && (
               <div className="flex flex-1 flex-col items-center justify-center text-center">
                 <Logo size={120} />
@@ -266,7 +267,7 @@ export default function PresentationScreen({ onExit }: { onExit: () => void }) {
             )}
 
             {idx === 2 && (
-              <div className="flex flex-1 flex-col items-center justify-center gap-5 md:flex-row md:gap-10">
+              <div className="flex flex-1 flex-col items-center justify-start gap-5 py-4 md:flex-row md:items-center md:justify-center md:gap-10">
                 <PhoneMock caption="Paso 1: escribe su nombre y elige su personaje"><MockOnboarding /></PhoneMock>
                 <div className="max-w-md">
                   <h2 className="font-display text-2xl font-black text-slate-900 sm:text-3xl">El niño entra solo 🚪</h2>
@@ -281,7 +282,7 @@ export default function PresentationScreen({ onExit }: { onExit: () => void }) {
             )}
 
             {idx === 3 && (
-              <div className="flex flex-1 flex-col items-center justify-center gap-5 md:flex-row md:gap-10">
+              <div className="flex flex-1 flex-col items-center justify-start gap-5 py-4 md:flex-row md:items-center md:justify-center md:gap-10">
                 <div className="max-w-md">
                   <h2 className="font-display text-2xl font-black text-slate-900 sm:text-3xl">TD: el maestro que habla 🤖</h2>
                   <p className="mt-2 text-base font-semibold text-slate-600">Un robot paciente, alegre y bilingüe de voz. TD es quien realmente enseña:</p>
@@ -307,7 +308,7 @@ export default function PresentationScreen({ onExit }: { onExit: () => void }) {
             )}
 
             {idx === 4 && (
-              <div className="flex flex-1 flex-col items-center justify-center gap-5 md:flex-row md:gap-10">
+              <div className="flex flex-1 flex-col items-center justify-start gap-5 py-4 md:flex-row md:items-center md:justify-center md:gap-10">
                 <PhoneMock caption="El mapa de 24 semanas, en 4 mundos"><MockMap /></PhoneMock>
                 <div className="max-w-md">
                   <h2 className="font-display text-2xl font-black text-slate-900 sm:text-3xl">Un mapa de aventura 🗺️</h2>
@@ -330,7 +331,7 @@ export default function PresentationScreen({ onExit }: { onExit: () => void }) {
             )}
 
             {idx === 5 && (
-              <div className="flex flex-1 flex-col justify-center">
+              <div className="flex flex-1 flex-col justify-start py-4 md:justify-center">
                 <h2 className="font-display text-2xl font-black text-slate-900 sm:text-3xl">El secreto del método: 4 pasos fijos 🧠</h2>
                 <p className="mt-1 text-base font-semibold text-slate-600">Cada actividad, <b>sin excepción</b>, sigue la secuencia probada con niños de 6 años. La primera vez, TD la narra completa; después el niño puede pedir que se la recuerde.</p>
                 <div className="mt-4 grid gap-3 md:grid-cols-2">
@@ -343,7 +344,7 @@ export default function PresentationScreen({ onExit }: { onExit: () => void }) {
             )}
 
             {idx === 6 && (
-              <div className="flex flex-1 flex-col items-center justify-center gap-5 md:flex-row md:gap-10">
+              <div className="flex flex-1 flex-col items-center justify-start gap-5 py-4 md:flex-row md:items-center md:justify-center md:gap-10">
                 <PhoneMock caption="Cada ejercicio tiene sus manipulables"><MockActividad /></PhoneMock>
                 <div className="max-w-md">
                   <h2 className="font-display text-2xl font-black text-slate-900 sm:text-3xl">Las 4 materias, bien hechas 🎓</h2>
@@ -358,7 +359,7 @@ export default function PresentationScreen({ onExit }: { onExit: () => void }) {
             )}
 
             {idx === 7 && (
-              <div className="flex flex-1 flex-col justify-center">
+              <div className="flex flex-1 flex-col justify-start py-4 md:justify-center">
                 <h2 className="font-display text-2xl font-black text-slate-900 sm:text-3xl">Motivación que se gana, no se compra 🏆</h2>
                 <div className="mt-4 grid grid-cols-2 gap-3 md:grid-cols-4">
                   {[
@@ -382,7 +383,7 @@ export default function PresentationScreen({ onExit }: { onExit: () => void }) {
             )}
 
             {idx === 8 && (
-              <div className="flex flex-1 flex-col items-center justify-center gap-5 md:flex-row md:gap-10">
+              <div className="flex flex-1 flex-col items-center justify-start gap-5 py-4 md:flex-row md:items-center md:justify-center md:gap-10">
                 <PhoneMock caption="Lo que ustedes pueden revisar"><MockPanel /></PhoneMock>
                 <div className="max-w-md">
                   <h2 className="font-display text-2xl font-black text-slate-900 sm:text-3xl">Para ustedes: Panel del adulto 🔐</h2>
@@ -398,7 +399,7 @@ export default function PresentationScreen({ onExit }: { onExit: () => void }) {
             )}
 
             {idx === 9 && (
-              <div className="flex flex-1 flex-col justify-center">
+              <div className="flex flex-1 flex-col justify-start py-4 md:justify-center">
                 <h2 className="font-display text-2xl font-black text-slate-900 sm:text-3xl">Lo que sí necesitan ustedes 💪</h2>
                 <div className="mt-4 grid gap-3 md:grid-cols-2">
                   {[
@@ -439,10 +440,12 @@ export default function PresentationScreen({ onExit }: { onExit: () => void }) {
               </div>
             )}
           </motion.div>
-        </AnimatePresence>
+          </AnimatePresence>
+        </div>
 
-        {/* Navegación */}
-        <div className="mt-4 flex items-center justify-between gap-2 pb-2 sm:mt-5 sm:gap-3">
+        {/* Navegación - fija abajo */}
+        <div className="shrink-0 border-t border-indigo-100 bg-white/80 px-3 py-3 backdrop-blur sm:px-4">
+          <div className="mx-auto flex w-full max-w-4xl items-center justify-between gap-2">
           <button
             onClick={prev}
             disabled={idx === 0}
@@ -475,6 +478,7 @@ export default function PresentationScreen({ onExit }: { onExit: () => void }) {
               <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5" /> Entrar
             </button>
           )}
+          </div>
         </div>
       </div>
     </div>
